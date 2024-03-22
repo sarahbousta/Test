@@ -6,8 +6,14 @@ def test_est_vivant(self):
     self.assertTrue(perso.est_vivant())
     perso.hp = 0
     self.assertFalse(perso.est_vivant())
-    
+
 def test_prendre_degats(self):
     perso = Personnage("Test", 10)
     perso.prendre_degats(5)
     self.assertEqual(perso.hp, 5)
+    
+def test_attaquer(self):
+    attaquant = Personnage("Attaquant", 10)
+    cible = Personnage("Cible", 10)
+    attaquant.attaquer(cible, 5)
+    self.assertEqual(cible.hp, 5)
